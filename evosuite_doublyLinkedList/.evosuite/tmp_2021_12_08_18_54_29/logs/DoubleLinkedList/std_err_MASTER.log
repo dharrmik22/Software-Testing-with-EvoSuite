@@ -1,0 +1,3 @@
+[MASTER] 18:56:42.495 [main] ERROR ExternalProcessHandler - Class DoubleLinkedList. Clients have not finished yet, although a timeout occurred.
+ClientNode: JUNIT_CHECK
+

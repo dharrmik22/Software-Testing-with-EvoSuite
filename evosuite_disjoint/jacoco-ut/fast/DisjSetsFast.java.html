@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DisjSetsFast.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">evosuite_disjoint</a> &gt; <a href="index.source.html" class="el_package">fast</a> &gt; <span class="el_source">DisjSetsFast.java</span></div><h1>DisjSetsFast.java</h1><pre class="source lang-java linenums">package fast;
+
+// DisjSetsFast class
+//
+// CONSTRUCTION: with int representing initial number of sets
+//
+// ******************PUBLIC OPERATIONS*********************
+// void union( root1, root2 ) --&gt; Merge two sets
+// int find( x )              --&gt; Return set containing x
+// ******************ERRORS********************************
+// No error checking is performed
+
+/**
+ * Disjoint set class, using union by rank
+ * and path compression.
+ * Elements in the set are numbered starting at 0.
+ * @author Mark Allen Weiss
+ */
+public class DisjSetsFast
+{
+
+    //@ invariant &quot;s!=null &amp;&amp; goodValues() &amp;&amp; acyclic();
+
+    /**
+     * Construct the disjoint sets object.
+     * @param numElements the initial number of disjoint sets.
+     */
+    public DisjSetsFast( int numElements )
+<span class="fc" id="L29">    {</span>
+<span class="fc" id="L30">        s = new int [ numElements ];</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">        for( int i = 0; i &lt; s.length; i++ )</span>
+<span class="fc" id="L32">            s[ i ] = -1;</span>
+<span class="fc" id="L33">    }</span>
+
+    /**
+     * Union two disjoint sets using the height heuristic.
+     * For simplicity, we assume root1 and root2 are distinct
+     * and represent set names.
+     * @param root1 the root of set 1.
+     * @param root2 the root of set 2.
+     */
+    //@ requires root1 &gt;= 0 &amp;&amp; root1 &lt; s.length &amp;&amp; root2 &gt;=0 &amp;&amp; root2 &lt; s.length &amp;&amp; root1 != root2 &amp;&amp; s[root1] &lt; 0 &amp;&amp; s[root2] &lt; 0;
+    //@ ensures find(root1)==find(root2);
+    public void union( int root1, int root2 )
+    {
+<span class="pc bpc" id="L46" title="1 of 2 branches missed.">        if( s[ root2 ] &lt; s[ root1 ] )  // root2 is deeper</span>
+<span class="nc" id="L47">            s[ root1 ] = root2;        // Make root2 new root</span>
+        else
+        {
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">            if( s[ root1 ] == s[ root2 ] )</span>
+<span class="fc" id="L51">                s[ root1 ]--;          // Update height if same</span>
+<span class="fc" id="L52">            s[ root2 ] = root1;        // Make root1 new root</span>
+        }
+<span class="fc" id="L54">    }</span>
+    boolean goodValues() {
+<span class="fc" id="L56">        boolean hasRoot = false;</span>
+<span class="fc bfc" id="L57" title="All 2 branches covered.">        for (int i = 0; i &lt; s.length; i++) {</span>
+<span class="pc bpc" id="L58" title="2 of 4 branches missed.">            if (s[i] &lt; 0 &amp;&amp; s[i]&gt;= 0-s.length) {</span>
+<span class="fc" id="L59">                hasRoot = true;</span>
+<span class="nc bnc" id="L60" title="All 4 branches missed.">            } else if (!((s[i] &gt;= 0 &amp;&amp; s[i] &lt; s.length))) {</span>
+<span class="nc" id="L61">                return false;</span>
+            }
+        }
+<span class="fc" id="L64">        return hasRoot;</span>
+    }
+
+    boolean acyclic() {
+<span class="fc" id="L68">        boolean[] visited = new boolean[s.length];</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">        for (int i = 0; i &lt; visited.length; i++) {</span>
+<span class="fc" id="L70">            visited[i] = false;</span>
+        }
+<span class="fc" id="L72">        int[] parents = new int[s.length];</span>
+
+<span class="fc bfc" id="L74" title="All 2 branches covered.">        for (int i = 0; i &lt; s.length; i++) {</span>
+<span class="pc bpc" id="L75" title="1 of 2 branches missed.">            if (!visited[i]) {</span>
+<span class="fc" id="L76">                int numParents = 0;</span>
+<span class="fc" id="L77">                int currentIndex = i;</span>
+<span class="pc bpc" id="L78" title="1 of 2 branches missed.">                while (s[currentIndex] &gt;=0) {</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">                    for (int j = 0; j &lt; numParents - 1; j++) {</span>
+<span class="nc bnc" id="L80" title="All 2 branches missed.">                        if (parents[j] == s[currentIndex]) {</span>
+<span class="nc" id="L81">                            return false;</span>
+                        }
+                    }
+<span class="nc" id="L84">                    parents[numParents] = s[currentIndex];</span>
+<span class="nc" id="L85">                    numParents++;</span>
+<span class="nc" id="L86">                    visited[currentIndex] = true;</span>
+<span class="nc" id="L87">                    currentIndex = s[currentIndex];</span>
+                }
+            }
+        }
+<span class="fc" id="L91">        return true;</span>
+    }
+
+    /**
+     * Perform a find with path compression.
+     * Error checks omitted again for simplicity.
+     * @param x the element being searched for.
+     * @return the set containing x.
+     */
+    //@ requires x &gt;= 0 &amp;&amp; x &lt; s.length;
+    //@ ensures s[\result] &lt; 0;
+    public int Find(int x) {
+<span class="fc" id="L103">        return find(x);</span>
+    }
+
+    public int find( int x )
+    {
+<span class="fc bfc" id="L108" title="All 2 branches covered.">        if( s[ x ] &lt; 0 )</span>
+<span class="fc" id="L109">            return x;</span>
+        else
+<span class="fc" id="L111">            return s[ x ] = find( s[ x ] );</span>
+    }
+
+    private int [ ] s;
+
+
+    // Test main; all finds on same output line should be identical
+    public static void main( String [ ] args )
+    {
+<span class="fc" id="L120">        int NumElements = 128;</span>
+<span class="fc" id="L121">        int NumInSameSet = 16;</span>
+
+<span class="fc" id="L123">        DisjSetsFast ds = new DisjSetsFast( NumElements );</span>
+        int set1, set2;
+
+<span class="fc bfc" id="L126" title="All 2 branches covered.">        for( int k = 1; k &lt; NumInSameSet; k *= 2 )</span>
+        {
+<span class="fc bfc" id="L128" title="All 2 branches covered.">            for( int j = 0; j + k &lt; NumElements; j += 2 * k )</span>
+            {
+<span class="fc" id="L130">                set1 = ds.find( j );</span>
+<span class="fc" id="L131">                set2 = ds.find( j + k );</span>
+<span class="fc" id="L132">                ds.union( set1, set2 );</span>
+            }
+        }
+
+<span class="fc bfc" id="L136" title="All 2 branches covered.">        for( int i = 0; i &lt; NumElements; i++ )</span>
+        {
+<span class="fc" id="L138">            System.out.print( ds.find( i )+ &quot;*&quot; );</span>
+<span class="fc bfc" id="L139" title="All 2 branches covered.">            if( i % NumInSameSet == NumInSameSet - 1 )</span>
+<span class="fc" id="L140">                System.out.println( );</span>
+        }
+<span class="fc" id="L142">        System.out.println( );</span>
+<span class="fc" id="L143">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BinaryHeap.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">evosuite_binaryHeap</a> &gt; <a href="index.source.html" class="el_package">intelement</a> &gt; <span class="el_source">BinaryHeap.java</span></div><h1>BinaryHeap.java</h1><pre class="source lang-java linenums">package intelement;
+
+// BinaryHeap class
+//
+// CONSTRUCTION: with optional capacity (that defaults to 100)
+//
+// ******************PUBLIC OPERATIONS*********************
+// void insert( x )       --&gt; Insert x
+// int deleteMin( )--&gt; Return and remove smallest item
+// int findMin( )  --&gt; Return smallest item
+// boolean isEmpty( )     --&gt; Return true if empty; else false
+// boolean isFull( )      --&gt; Return true if full; else false
+// void makeEmpty( )      --&gt; Remove all items
+// ******************ERRORS********************************
+// Throws Overflow if capacity exceeded
+
+/**
+ * Implements a binary heap.
+ * Note that all &quot;matching&quot; is based on the compareTo method.
+ * @author Mark Allen Weiss
+ */
+public class BinaryHeap
+{
+    //@ invariant wellFormed();
+    /**
+     * Construct the binary heap.
+     */
+    public BinaryHeap( )
+    {
+<span class="fc" id="L30">        this( DEFAULT_CAPACITY );</span>
+<span class="fc" id="L31">    }</span>
+
+    /**
+     * Construct the binary heap.
+     * @param capacity the capacity of the binary heap.
+     */
+    //@ requires capacity &gt; 0;
+    //@ ensures isEmpty();
+    public BinaryHeap( int capacity )
+<span class="fc" id="L40">    {</span>
+<span class="fc" id="L41">        currentSize = 0;</span>
+<span class="fc" id="L42">        array = new int[ capacity + 1 ];</span>
+<span class="fc" id="L43">    }</span>
+
+    /**
+     * Insert into the priority queue, maintaining heap order.
+     * Duplicates are allowed.
+     * @param x the item to insert.
+     * @exception Overflow if container is full.
+     */
+    public void insert( int x ) throws Overflow
+    {
+<span class="fc bfc" id="L53" title="All 2 branches covered.">        if( isFull( ) )</span>
+<span class="fc" id="L54">            throw new Overflow( );</span>
+
+        // Percolate up
+<span class="fc" id="L57">        int hole = ++currentSize;</span>
+<span class="pc bpc" id="L58" title="3 of 4 branches missed.">        for( ; hole &gt; 1 &amp;&amp; x&lt; array[ hole / 2 ]; hole /= 2 )</span>
+<span class="nc" id="L59">            array[ hole ] = array[ hole / 2 ];</span>
+<span class="fc" id="L60">        array[ hole ] = x;</span>
+<span class="fc" id="L61">    }</span>
+
+    /**
+     * Find the smallest item in the priority queue.
+     * @return the smallest item, or null, if empty.
+     */
+    public int findMin( )
+    {
+<span class="fc bfc" id="L69" title="All 2 branches covered.">        if( isEmpty( ) )</span>
+<span class="fc" id="L70">            return -1;</span>
+<span class="fc" id="L71">        return array[ 1 ];</span>
+    }
+    boolean wellFormed() {
+<span class="pc bpc" id="L74" title="1 of 2 branches missed.">        if(array==null) {//array!=null</span>
+<span class="nc" id="L75">            return false;</span>
+        }
+<span class="pc bpc" id="L77" title="2 of 4 branches missed.">        if(currentSize&lt;0 || currentSize&gt;=array.length) {//currentSize&gt;=0; currentSize&lt;array.length;</span>
+<span class="nc" id="L78">            return false;</span>
+        }
+<span class="pc bpc" id="L80" title="1 of 2 branches missed.">        for(int i=1; i&lt;currentSize; i++) {</span>
+<span class="nc bnc" id="L81" title="All 4 branches missed.">            if(i*2 &lt;= currentSize &amp;&amp; array[i]&gt;array[2*i]) {</span>
+<span class="nc" id="L82">                return false;</span>
+            }
+<span class="nc bnc" id="L84" title="All 4 branches missed.">            if(i*2 + 1&lt;= currentSize &amp;&amp; array[i]&gt;array[2*i+1]) {</span>
+<span class="nc" id="L85">                return false;</span>
+            }
+        }
+<span class="fc" id="L88">        return true;</span>
+    }
+    /**
+     * Remove the smallest item from the priority queue.
+     * @return the smallest item, or null, if empty.
+     */
+    public int deleteMin( )
+    {
+<span class="pc bpc" id="L96" title="1 of 2 branches missed.">        if( isEmpty( ) )</span>
+<span class="fc" id="L97">            return -1;</span>
+
+<span class="nc" id="L99">        int minItem = findMin( );</span>
+<span class="nc" id="L100">        array[ 1 ] = array[ currentSize-- ];</span>
+<span class="nc" id="L101">        percolateDown( 1 );</span>
+
+<span class="nc" id="L103">        return minItem;</span>
+    }
+
+    /**
+     * Establish heap order property from an arbitrary
+     * arrangement of items. Runs in linear time.
+     */
+    private void buildHeap( )
+    {
+<span class="nc bnc" id="L112" title="All 2 branches missed.">        for( int i = currentSize / 2; i &gt; 0; i-- )</span>
+<span class="nc" id="L113">            percolateDown( i );</span>
+<span class="nc" id="L114">    }</span>
+
+    /**
+     * Test if the priority queue is logically empty.
+     * @return true if empty, false otherwise.
+     */
+    public boolean isEmpty( )
+    {
+<span class="fc bfc" id="L122" title="All 2 branches covered.">        return currentSize == 0;</span>
+    }
+
+    /**
+     * Test if the priority queue is logically full.
+     * @return true if full, false otherwise.
+     */
+    public boolean isFull( )
+    {
+<span class="fc bfc" id="L131" title="All 2 branches covered.">        return currentSize == array.length - 1;</span>
+    }
+
+    /**
+     * Make the priority queue logically empty.
+     */
+    //@ ensures isEmpty();
+    public void makeEmpty( )
+    {
+<span class="fc" id="L140">        currentSize = 0;</span>
+<span class="fc" id="L141">    }</span>
+
+    private static final int DEFAULT_CAPACITY = 100;
+
+    private int currentSize;      // Number of elements in heap
+    private int [ ] array; // The heap array
+
+    /**
+     * Internal method to percolate down in the heap.
+     * @param hole the index at which the percolate begins.
+     */
+    private void percolateDown( int hole )
+    {
+        /* 1*/      int child;
+        /* 2*/
+<span class="nc" id="L156">        int tmp = array[ hole ];</span>
+
+        /* 3*/
+<span class="nc bnc" id="L159" title="All 2 branches missed.">        for( ; hole * 2 &lt;= currentSize; hole = child )</span>
+        {
+<span class="nc" id="L161">            /* 4*/          child = hole * 2;</span>
+            /* 5*/
+<span class="nc bnc" id="L163" title="All 4 branches missed.">            if( child != currentSize &amp;&amp;</span>
+                    /* 6*/                  array[ child + 1 ]&lt; array[ child ]  )
+<span class="nc" id="L165">                /* 7*/              child++;</span>
+            /* 8*/
+<span class="nc bnc" id="L167" title="All 2 branches missed.">            if( array[ child ]&lt; tmp )</span>
+<span class="nc" id="L168">                /* 9*/              array[ hole ] = array[ child ];</span>
+            else
+                /*10*/              break;
+        }
+<span class="nc" id="L172">        /*11*/      array[ hole ] = tmp;</span>
+<span class="nc" id="L173">    }</span>
+
+    // Test program
+    public static void main( String [ ] args )
+    {
+<span class="nc" id="L178">        int numItems = 10000;</span>
+<span class="nc" id="L179">        BinaryHeap h = new BinaryHeap( numItems );</span>
+<span class="nc" id="L180">        int i = 37;</span>
+
+        try
+        {
+<span class="nc bnc" id="L184" title="All 2 branches missed.">            for( i = 37; i != 0; i = ( i + 37 ) % numItems )</span>
+<span class="nc" id="L185">                h.insert(  i  );</span>
+<span class="nc bnc" id="L186" title="All 2 branches missed.">            for( i = 1; i &lt; numItems; i++ )</span>
+<span class="nc bnc" id="L187" title="All 2 branches missed.">                if( ( h.deleteMin( ) ) != i )</span>
+<span class="nc" id="L188">                    System.out.println( &quot;Oops! &quot; + i );</span>
+
+<span class="nc bnc" id="L190" title="All 2 branches missed.">            for( i = 37; i != 0; i = ( i + 37 ) % numItems )</span>
+<span class="nc" id="L191">                h.insert( i  );</span>
+<span class="nc" id="L192">            h.insert(  0  );</span>
+<span class="nc" id="L193">            i = 9999999;</span>
+<span class="nc" id="L194">            h.insert(  i  );</span>
+<span class="nc bnc" id="L195" title="All 2 branches missed.">            for( i = 1; i &lt;= numItems; i++ )</span>
+<span class="nc bnc" id="L196" title="All 2 branches missed.">                if(  h.deleteMin( )  != i )</span>
+<span class="nc" id="L197">                    System.out.println( &quot;Oops! &quot; + i + &quot; &quot; );</span>
+        }
+<span class="nc" id="L199">        catch( Overflow e )</span>
+        {
+<span class="nc" id="L201">            System.out.println( &quot;Overflow (expected)! &quot; + i  );</span>
+<span class="nc" id="L202">        }</span>
+<span class="nc" id="L203">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

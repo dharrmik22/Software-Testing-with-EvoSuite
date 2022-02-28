@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="util.Vector_ESTest" time="0.683" tests="53" errors="31" skipped="0" failures="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_202\jre\bin"/>
+    <property name="java.vm.version" value="25.202-b08"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\ADMIN\eclipse-workspace\evosuite_vector"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="IN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\Users\ADMIN\eclipse-workspace\evosuite_vector"/>
+    <property name="java.runtime.version" value="1.8.0_202-b08"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_202\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\ADMIN\AppData\Local\Temp\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="classworlds.conf" value="C:\Program Files\Java\apache-maven-3.8.4\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_202\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\ADMIN\jdk-11.0.3_windows-x64_bin;C:\Program Files\Java\jdk1.8.0_202\bin;C:\Program Files\Java\apache-maven-3.8.4\bin;C:\Program Files\Java\evosuite-1.0.6.jar;C:\Program Files\Java\Tutorial_Stack\Tutorial_Stack\target\dependency;C:\Program Files\Java\Tutorial_Stack\Tutorial_Stack\target\;C:\Program Files\Java\Tutorial_Stack\Tutorial_Stack\evosuite-tests\tutorial\C:\Program Files\Java\Tutorial_Stack\Tutorial_Stack\evosuite-tests\tutorial;C:\Users\ADMIN\AppData\Local\Microsoft\WindowsApps;;."/>
+    <property name="maven.conf" value="C:\Program Files\Java\apache-maven-3.8.4/conf"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="library.jansi.path" value="C:\Program Files\Java\apache-maven-3.8.4\lib\jansi-native"/>
+    <property name="user.home" value="C:\Users\ADMIN"/>
+    <property name="user.timezone" value="America/New_York"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="user.name" value="ADMIN"/>
+    <property name="java.class.path" value="C:\Program Files\Java\apache-maven-3.8.4\boot\plexus-classworlds-2.6.0.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_202\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean test jacoco:restore-instrumented-classes jacoco:report"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_202"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_202\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_202\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_202\jre\classes"/>
+    <property name="sun.stderr.encoding" value="cp437"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\Program Files\Java\apache-maven-3.8.4"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.stdout.encoding" value="cp437"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase name="test38" classname="util.Vector_ESTest" time="0.086">
+    <error type="java.lang.ArrayIndexOutOfBoundsException:">java.lang.ArrayIndexOutOfBoundsException: null
+	at java.lang.System.arraycopy(Native Method)
+	at util.Vector.removeRange(Vector.java:1105)
+	at util.Vector_ESTest.test38(Vector_ESTest.java:623)
+</error>
+  </testcase>
+  <testcase name="test37" classname="util.Vector_ESTest" time="0.023"/>
+  <testcase name="test36" classname="util.Vector_ESTest" time="0.008"/>
+  <testcase name="test35" classname="util.Vector_ESTest" time="0.007">
+    <error message="-1345" type="java.lang.ArrayIndexOutOfBoundsException">java.lang.ArrayIndexOutOfBoundsException: -1345
+	at util.Vector.get(Vector.java:781)
+	at util.Vector_ESTest.test35(Vector_ESTest.java:561)
+</error>
+  </testcase>
+  <testcase name="test34" classname="util.Vector_ESTest" time="0.006"/>
+  <testcase name="test33" classname="util.Vector_ESTest" time="0.009">
+    <error message="Array index out of range: 2262" type="org.evosuite.runtime.mock.java.lang.MockArrayIndexOutOfBoundsException">org.evosuite.runtime.mock.java.lang.MockArrayIndexOutOfBoundsException: Array index out of range: 2262
+	at util.Vector.get(Vector.java:779)
+	at util.Vector_ESTest.test33(Vector_ESTest.java:535)
+</error>
+  </testcase>
+  <testcase name="test32" classname="util.Vector_ESTest" time="0.007">
+    <error message="Array index out of range: 0" type="org.evosuite.runtime.mock.java.lang.MockArrayIndexOutOfBoundsException">org.evosuite.runtime.mock.java.lang.MockArrayIndexOutOfBoundsException: Array index out of range: 0
+	at util.Vector.get(Vector.java:779)
+	at util.Vector_ESTest.test32(Vector_ESTest.java:516)
+</error>
+  </testcase>
+  <testcase name="test31" classname="util.Vector_ESTest" time="0.009">
+    <error message=" &gt;= " type="java.lang.IndexOutOfBoundsException">java.lang.IndexOutOfBoundsException:  >= 
+	at util.Vector.lastIndexOf(Vector.java:431)
+	at util.Vector_ESTest.test31(Vector_ESTest.java:510)
+</error>
+  </testcase>
+  <testcase name="test39" classname="util.Vector_ESTest" time="0.008"/>
+  <testcase name="test30" classname="util.Vector_ESTest" time="0.004"/>
+  <testcase name="test27" classname="util.Vector_ESTest" time="0.007">
+    <error message="&gt;" type="org.evosuite.runtime.mock.java.lang.MockArrayIndexOutOfBoundsException">org.evosuite.runtime.mock.java.lang.MockArrayIndexOutOfBoundsException: >
+	at util.Vector.insertElementAt(Vector.java:612)
+	at util.Vector_ESTest.test27(Vector_ESTest.java:449)
+</error>
+  </testcase>
+  <testcase name="test26" classname="util.Vector_ESTest" time="0.007">
+    <error message="Illegal Capacity: -1" type="org.evosuite.runtime.mock.java.lang.MockIllegalArgumentException"><![CDATA[org.evosuite.runtime.mock.java.lang.MockIllegalArgumentException: Illegal Capacity: -1
+	at util.Vector.<init>(Vector.java:124)
+	at util.Vector_ESTest.test26(Vector_ESTest.java:426)
+]]></error>
+  </testcase>
+  <testcase name="test25" classname="util.Vector_ESTest" time="0.006"/>
+  <testcase name="test24" classname="util.Vector_ESTest" time="0.006">
+    <error message="0 &gt;= 0" type="org.evosuite.runtime.mock.java.lang.MockArrayIndexOutOfBoundsException">org.evosuite.runtime.mock.java.lang.MockArrayIndexOutOfBoundsException: 0 >= 0
+	at util.Vector.elementAt(Vector.java:465)
+	at util.Vector_ESTest.test24(Vector_ESTest.java:402)
+</error>
+  </testcase>
+  <testcase name="test23" classname="util.Vector_ESTest" time="0.009">
+    <error message="Illegal Capacity: -1236" type="org.evosuite.runtime.mock.java.lang.MockIllegalArgumentException"><![CDATA[org.evosuite.runtime.mock.java.lang.MockIllegalArgumentException: Illegal Capacity: -1236
+	at util.Vector.<init>(Vector.java:124)
+	at util.Vector.<init>(Vector.java:140)
+	at util.Vector_ESTest.test23(Vector_ESTest.java:382)
+]]></error>
+  </testcase>
+  <testcase name="test22" classname="util.Vector_ESTest" time="0.011">
+    <error type="java.util.NoSuchElementException:">java.util.NoSuchElementException: null
+	at util.Vector.lastElement(Vector.java:499)
+	at util.Vector_ESTest.test22(Vector_ESTest.java:373)
+</error>
+  </testcase>
+  <testcase name="test21" classname="util.Vector_ESTest" time="0.01">
+    <error message="0 &gt;= 0" type="org.evosuite.runtime.mock.java.lang.MockArrayIndexOutOfBoundsException">org.evosuite.runtime.mock.java.lang.MockArrayIndexOutOfBoundsException: 0 >= 0
+	at util.Vector.setElementAt(Vector.java:532)
+	at util.Vector_ESTest.test21(Vector_ESTest.java:349)
+</error>
+  </testcase>
+  <testcase name="test20" classname="util.Vector_ESTest" time="0.007">
+    <error message="&gt;" type="org.evosuite.runtime.mock.java.lang.MockArrayIndexOutOfBoundsException">org.evosuite.runtime.mock.java.lang.MockArrayIndexOutOfBoundsException: >
+	at util.Vector.insertElementAt(Vector.java:612)
+	at util.Vector_ESTest.test20(Vector_ESTest.java:335)
+</error>
+  </testcase>
+  <testcase name="test29" classname="util.Vector_ESTest" time="0.007">
+    <error message="-2310" type="java.lang.ArrayIndexOutOfBoundsException">java.lang.ArrayIndexOutOfBoundsException: -2310
+	at util.Vector.set(Vector.java:802)
+	at util.Vector_ESTest.test29(Vector_ESTest.java:495)
+</error>
+  </testcase>
+  <testcase name="test28" classname="util.Vector_ESTest" time="0.008">
+    <error message="0 &gt;= 0" type="org.evosuite.runtime.mock.java.lang.MockArrayIndexOutOfBoundsException">org.evosuite.runtime.mock.java.lang.MockArrayIndexOutOfBoundsException: 0 >= 0
+	at util.Vector.elementAt(Vector.java:465)
+	at util.Vector_ESTest.test28(Vector_ESTest.java:474)
+</error>
+  </testcase>
+  <testcase name="test16" classname="util.Vector_ESTest" time="0.008"/>
+  <testcase name="test15" classname="util.Vector_ESTest" time="0.007">
+    <error type="java.lang.NullPointerException:">java.lang.NullPointerException: null
+	at util.Vector.toArray(Vector.java:751)
+	at util.Vector_ESTest.test15(Vector_ESTest.java:249)
+</error>
+  </testcase>
+  <testcase name="test14" classname="util.Vector_ESTest" time="0.01">
+    <error message="-2642" type="java.lang.ArrayIndexOutOfBoundsException">java.lang.ArrayIndexOutOfBoundsException: -2642
+	at util.Vector.insertElementAt(Vector.java:616)
+	at util.Vector_ESTest.test14(Vector_ESTest.java:238)
+</error>
+  </testcase>
+  <testcase name="test13" classname="util.Vector_ESTest" time="0.005">
+    <error message="1 &gt;= 0" type="org.evosuite.runtime.mock.java.lang.MockArrayIndexOutOfBoundsException">org.evosuite.runtime.mock.java.lang.MockArrayIndexOutOfBoundsException: 1 >= 0
+	at util.Vector.elementAt(Vector.java:465)
+	at util.Vector_ESTest.test13(Vector_ESTest.java:227)
+</error>
+  </testcase>
+  <testcase name="test12" classname="util.Vector_ESTest" time="0.006"/>
+  <testcase name="test11" classname="util.Vector_ESTest" time="0.007"/>
+  <testcase name="test10" classname="util.Vector_ESTest" time="0.012">
+    <error message="0 &gt;= 0" type="org.evosuite.runtime.mock.java.lang.MockArrayIndexOutOfBoundsException">org.evosuite.runtime.mock.java.lang.MockArrayIndexOutOfBoundsException: 0 >= 0
+	at util.Vector.setElementAt(Vector.java:532)
+	at util.Vector_ESTest.test10(Vector_ESTest.java:181)
+</error>
+  </testcase>
+  <testcase name="test19" classname="util.Vector_ESTest" time="0.006"/>
+  <testcase name="test18" classname="util.Vector_ESTest" time="0.007"/>
+  <testcase name="test17" classname="util.Vector_ESTest" time="0.012">
+    <error type="java.lang.NullPointerException:">java.lang.NullPointerException: null
+	at java.util.Objects.requireNonNull(Objects.java:203)
+	at java.util.AbstractCollection.removeAll(AbstractCollection.java:371)
+	at util.Vector.removeAll(Vector.java:954)
+	at util.Vector_ESTest.test17(Vector_ESTest.java:293)
+</error>
+  </testcase>
+  <testcase name="test52" classname="util.Vector_ESTest" time="0.013">
+    <error message="-2533" type="java.lang.ArrayIndexOutOfBoundsException">java.lang.ArrayIndexOutOfBoundsException: -2533
+	at util.Vector.indexOf(Vector.java:385)
+	at util.Vector_ESTest.test52(Vector_ESTest.java:857)
+</error>
+  </testcase>
+  <testcase name="test51" classname="util.Vector_ESTest" time="0.008"/>
+  <testcase name="test50" classname="util.Vector_ESTest" time="0.01"/>
+  <testcase name="test05" classname="util.Vector_ESTest" time="0.013">
+    <error message="0 &gt;= 0" type="org.evosuite.runtime.mock.java.lang.MockArrayIndexOutOfBoundsException">org.evosuite.runtime.mock.java.lang.MockArrayIndexOutOfBoundsException: 0 >= 0
+	at util.Vector.elementAt(Vector.java:465)
+	at util.Vector_ESTest.test05(Vector_ESTest.java:113)
+</error>
+  </testcase>
+  <testcase name="test49" classname="util.Vector_ESTest" time="0.006"/>
+  <testcase name="test04" classname="util.Vector_ESTest" time="0.005"/>
+  <testcase name="test48" classname="util.Vector_ESTest" time="0.004"/>
+  <testcase name="test03" classname="util.Vector_ESTest" time="0.011">
+    <error type="java.util.NoSuchElementException:">java.util.NoSuchElementException: null
+	at util.Vector.lastElement(Vector.java:499)
+	at util.Vector_ESTest.test03(Vector_ESTest.java:85)
+</error>
+  </testcase>
+  <testcase name="test47" classname="util.Vector_ESTest" time="0.007">
+    <error type="java.util.NoSuchElementException:">java.util.NoSuchElementException: null
+	at util.Vector.firstElement(Vector.java:483)
+	at util.Vector_ESTest.test47(Vector_ESTest.java:761)
+</error>
+  </testcase>
+  <testcase name="test02" classname="util.Vector_ESTest" time="0.005"/>
+  <testcase name="test46" classname="util.Vector_ESTest" time="0.005"/>
+  <testcase name="test01" classname="util.Vector_ESTest" time="0.007">
+    <error message="Illegal Capacity: -2476" type="org.evosuite.runtime.mock.java.lang.MockIllegalArgumentException"><![CDATA[org.evosuite.runtime.mock.java.lang.MockIllegalArgumentException: Illegal Capacity: -2476
+	at util.Vector.<init>(Vector.java:124)
+	at util.Vector.<init>(Vector.java:140)
+	at util.Vector_ESTest.test01(Vector_ESTest.java:62)
+]]></error>
+  </testcase>
+  <testcase name="test45" classname="util.Vector_ESTest" time="0.007">
+    <error message=" &gt;= " type="org.evosuite.runtime.mock.java.lang.MockArrayIndexOutOfBoundsException">org.evosuite.runtime.mock.java.lang.MockArrayIndexOutOfBoundsException:  >= 
+	at util.Vector.removeElementAt(Vector.java:564)
+	at util.Vector_ESTest.test45(Vector_ESTest.java:727)
+</error>
+  </testcase>
+  <testcase name="test00" classname="util.Vector_ESTest" time="0.007">
+    <error type="java.lang.ArrayIndexOutOfBoundsException:">java.lang.ArrayIndexOutOfBoundsException: null
+	at java.lang.System.arraycopy(Native Method)
+	at util.Vector.removeRange(Vector.java:1105)
+	at util.Vector_ESTest.test00(Vector_ESTest.java:52)
+</error>
+  </testcase>
+  <testcase name="test44" classname="util.Vector_ESTest" time="0.005">
+    <error message="Array index out of range: 4522" type="org.evosuite.runtime.mock.java.lang.MockArrayIndexOutOfBoundsException">org.evosuite.runtime.mock.java.lang.MockArrayIndexOutOfBoundsException: Array index out of range: 4522
+	at util.Vector.addAll(Vector.java:996)
+	at util.Vector_ESTest.test44(Vector_ESTest.java:707)
+</error>
+  </testcase>
+  <testcase name="test43" classname="util.Vector_ESTest" time="0.004"/>
+  <testcase name="test42" classname="util.Vector_ESTest" time="0.016">
+    <error type="java.util.NoSuchElementException:">java.util.NoSuchElementException: null
+	at util.Vector.lastElement(Vector.java:499)
+	at util.Vector_ESTest.test42(Vector_ESTest.java:675)
+</error>
+  </testcase>
+  <testcase name="test09" classname="util.Vector_ESTest" time="0.199">
+    <error message=" &gt;= " type="org.evosuite.runtime.mock.java.lang.MockArrayIndexOutOfBoundsException">org.evosuite.runtime.mock.java.lang.MockArrayIndexOutOfBoundsException:  >= 
+	at util.Vector.removeElementAt(Vector.java:564)
+	at util.Vector_ESTest.test09(Vector_ESTest.java:160)
+</error>
+  </testcase>
+  <testcase name="test08" classname="util.Vector_ESTest" time="0.005"/>
+  <testcase name="test07" classname="util.Vector_ESTest" time="0.005"/>
+  <testcase name="test06" classname="util.Vector_ESTest" time="0.005"/>
+  <testcase name="test41" classname="util.Vector_ESTest" time="0.005">
+    <error message="Array index out of range: 10" type="org.evosuite.runtime.mock.java.lang.MockArrayIndexOutOfBoundsException">org.evosuite.runtime.mock.java.lang.MockArrayIndexOutOfBoundsException: Array index out of range: 10
+	at util.Vector.get(Vector.java:779)
+	at util.Vector_ESTest.test41(Vector_ESTest.java:667)
+</error>
+  </testcase>
+  <testcase name="test40" classname="util.Vector_ESTest" time="0.006">
+    <error message=" &gt;= " type="java.lang.IndexOutOfBoundsException">java.lang.IndexOutOfBoundsException:  >= 
+	at util.Vector.lastIndexOf(Vector.java:431)
+	at util.Vector_ESTest.test40(Vector_ESTest.java:652)
+</error>
+  </testcase>
+</testsuite>

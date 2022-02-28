@@ -1,0 +1,83 @@
+* Starting client
+* Connecting to master process on port 9008
+* Analyzing classpath: 
+  - C:\Users\ADMIN\eclipse-workspace\evosuite_disjoint\target\test-classes
+  - C:\Users\ADMIN\eclipse-workspace\evosuite_disjoint\target\classes
+  - C:\Users\ADMIN\.m2\repository\junit\junit\4.12\junit-4.12.jar
+  - C:\Users\ADMIN\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar
+* Finished analyzing classpath
+* Generating tests for class orig.DisjSets
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+  - Mutation testing (weak)
+  - Method-Output Coverage
+  - Top-Level Method Coverage
+  - No-Exception Top-Level Method Coverage
+  - Context Branch Coverage
+* Setting up search algorithm for whole suite generation
+[MASTER] 19:14:02.764 [pool-2-thread-1] WARN  TestSuiteSerialization - Cannot load tests because file does not exist: C:\Users\ADMIN\eclipse-workspace\evosuite_disjoint\.evosuite\evosuite-seeds\orig.DisjSets.seed
+* Loaded 0 tests from C:\Users\ADMIN\eclipse-workspace\evosuite_disjoint\.evosuite\evosuite-seeds\orig.DisjSets.seed
+* Total number of test goals: 
+  - Line 50
+  - Branch 34
+  - Exception 0
+  - MutationFactory 342
+  - Output 10
+  - Method 7
+  - MethodNoException 7
+  - CBranchFitnessFactory 34
+* Using seed 1639008821605
+* Starting evolution
+[MASTER] 19:14:03.475 [pool-2-thread-1] WARN  TimeController - Phase INITIALIZATION lasted too long, 11 seconds more than allowed.
+* Search finished after 77s and 0 generations, 1171 statements, best individual has fitness: 55.77738095238095
+* Writing sequences to pool
+[MASTER] 19:15:20.532 [pool-2-thread-1] WARN  TimeController - Phase SEARCH lasted too long, 13 seconds more than allowed.
+* Minimizing test suite
+[MASTER] 19:15:40.530 [pool-2-thread-1] WARN  TestSuiteMinimizer - Minimization timeout. Roll back to original test suite
+[MASTER] 19:15:40.530 [pool-2-thread-1] WARN  TimeController - Phase MINIMIZATION lasted too long, 0 seconds more than allowed.
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 94%
+* Total number of goals: 50
+* Number of covered goals: 47
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 79%
+* Total number of goals: 34
+* Number of covered goals: 27
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 4
+* Number of covered goals: 4
+* Coverage analysis for criterion WEAKMUTATION
+* Coverage of criterion WEAKMUTATION: 92%
+* Total number of goals: 342
+* Number of covered goals: 313
+* Coverage analysis for criterion OUTPUT
+* Coverage of criterion OUTPUT: 70%
+* Total number of goals: 10
+* Number of covered goals: 7
+* Coverage analysis for criterion METHOD
+* Coverage of criterion METHOD: 100%
+* Total number of goals: 7
+* Number of covered goals: 7
+* Coverage analysis for criterion METHODNOEXCEPTION
+* Coverage of criterion METHODNOEXCEPTION: 100%
+* Total number of goals: 7
+* Number of covered goals: 7
+* Coverage analysis for criterion CBRANCH
+* Coverage of criterion CBRANCH: 76%
+* Total number of goals: 34
+* Number of covered goals: 26
+* Generated 14 tests with total length 236
+* Resulting test suite's coverage: 89% (average coverage for all fitness functions)
+* Generating assertions
+[MASTER] 19:16:16.844 [pool-2-thread-1] WARN  TimeController - Current phase ASSERTION_GENERATION could run up to 9s, but only -36s are left
+* Skipping assertion generation because not enough time is left
+* Compiling and checking tests
+[MASTER] 19:16:16.953 [pool-2-thread-1] WARN  TimeController - Current phase JUNIT_CHECK could run up to 9s, but only -36s are left
+[MASTER] 19:16:16.955 [pool-2-thread-1] WARN  TimeController - Current phase WRITING_TESTS could run up to 9s, but only -36s are left
+* Writing JUnit test case 'DisjSets_ESTest' to C:\Users\ADMIN\eclipse-workspace\evosuite_disjoint\.evosuite\tmp_2021_12_08_19_13_27\tests
+* Done!
+

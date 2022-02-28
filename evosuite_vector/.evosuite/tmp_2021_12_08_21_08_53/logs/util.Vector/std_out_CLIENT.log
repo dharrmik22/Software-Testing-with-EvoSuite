@@ -1,0 +1,82 @@
+* Starting client
+* Connecting to master process on port 21516
+* Analyzing classpath: 
+  - C:\Users\ADMIN\eclipse-workspace\evosuite_vector\target\test-classes
+  - C:\Users\ADMIN\eclipse-workspace\evosuite_vector\target\classes
+  - C:\Users\ADMIN\.m2\repository\junit\junit\4.12\junit-4.12.jar
+  - C:\Users\ADMIN\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar
+* Finished analyzing classpath
+* Generating tests for class util.Vector
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+  - Mutation testing (weak)
+  - Method-Output Coverage
+  - Top-Level Method Coverage
+  - No-Exception Top-Level Method Coverage
+  - Context Branch Coverage
+* Setting up search algorithm for whole suite generation
+[MASTER] 21:09:42.152 [pool-2-thread-1] WARN  TestSuiteSerialization - Cannot load tests because file does not exist: C:\Users\ADMIN\eclipse-workspace\evosuite_vector\.evosuite\evosuite-seeds\util.Vector.seed
+* Loaded 0 tests from C:\Users\ADMIN\eclipse-workspace\evosuite_vector\.evosuite\evosuite-seeds\util.Vector.seed
+* Total number of test goals: 
+  - Line 203
+  - Branch 125
+  - Exception 0
+  - MutationFactory 964
+  - Output 67
+  - Method 46
+  - MethodNoException 46
+  - CBranchFitnessFactory 125
+* Using seed 1639015756375
+* Starting evolution
+[MASTER] 21:09:43.726 [pool-2-thread-1] WARN  TimeController - Phase INITIALIZATION lasted too long, 21 seconds more than allowed.
+* Search finished after 38s and 0 generations, 441 statements, best individual has fitness: 933.763646536594
+* Writing sequences to pool
+[MASTER] 21:10:25.181 [pool-2-thread-1] WARN  TimeController - Phase SEARCH lasted too long, 11 seconds more than allowed.
+[MASTER] 21:10:25.670 [pool-2-thread-1] WARN  TimeController - Current phase MINIMIZATION could run up to 5s, but only -8s are left
+* Skipping minimization because not enough time is left
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 68%
+* Total number of goals: 203
+* Number of covered goals: 138
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 57%
+* Total number of goals: 125
+* Number of covered goals: 71
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 26
+* Number of covered goals: 26
+* Coverage analysis for criterion WEAKMUTATION
+* Coverage of criterion WEAKMUTATION: 57%
+* Total number of goals: 964
+* Number of covered goals: 548
+* Coverage analysis for criterion OUTPUT
+* Coverage of criterion OUTPUT: 31%
+* Total number of goals: 67
+* Number of covered goals: 21
+* Coverage analysis for criterion METHOD
+* Coverage of criterion METHOD: 89%
+* Total number of goals: 46
+* Number of covered goals: 41
+* Coverage analysis for criterion METHODNOEXCEPTION
+* Coverage of criterion METHODNOEXCEPTION: 87%
+* Total number of goals: 46
+* Number of covered goals: 40
+* Coverage analysis for criterion CBRANCH
+* Coverage of criterion CBRANCH: 50%
+* Total number of goals: 125
+* Number of covered goals: 62
+* Generated 53 tests with total length 1109
+* Resulting test suite's coverage: 60% (average coverage for all fitness functions)
+* Generating assertions
+[MASTER] 21:10:27.330 [pool-2-thread-1] WARN  TimeController - Current phase ASSERTION_GENERATION could run up to 5s, but only -10s are left
+* Skipping assertion generation because not enough time is left
+* Compiling and checking tests
+[MASTER] 21:10:27.576 [pool-2-thread-1] WARN  TimeController - Current phase JUNIT_CHECK could run up to 5s, but only -10s are left
+[MASTER] 21:10:27.579 [pool-2-thread-1] WARN  TimeController - Current phase WRITING_TESTS could run up to 5s, but only -10s are left
+* Writing JUnit test case 'Vector_ESTest' to C:\Users\ADMIN\eclipse-workspace\evosuite_vector\.evosuite\tmp_2021_12_08_21_08_53\tests
+* Done!
+

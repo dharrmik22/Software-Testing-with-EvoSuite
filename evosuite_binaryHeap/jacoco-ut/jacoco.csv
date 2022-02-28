@@ -1,0 +1,6 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+evosuite_stack,common,Overflow,0,3,0,0,0,1,0,1,0,1
+evosuite_stack,common,Underflow,0,3,0,0,0,1,0,1,0,1
+evosuite_stack,array,StackAr,12,152,4,18,2,38,3,20,0,12
+evosuite_stack,list,ListNode,8,9,0,0,3,4,2,1,2,1
+evosuite_stack,list,StackLi,4,134,2,18,2,39,2,19,0,11
